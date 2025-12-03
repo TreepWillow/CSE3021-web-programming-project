@@ -66,6 +66,36 @@ CREATE TABLE users (
     pass VARCHAR(100)
 );
 
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    employee_name VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE jobs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    job_name VARCHAR(50),
+    pay_rate DECIMAL(7,2)
+);
+
+CREATE TABLE hired (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    job_id INT,
+    FOREIGN KEY (employee_id) REFERENCES employees(id),
+    FOREIGN KEY (job_id) REFERENCES jobs(id)
+);
+
+CREATE TABLE time_entries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hired_id INT,
+    clock_in DateTime,
+    clock_out DateTime,
+    hours_logged DECIMAL(5,2),
+    FOREIGN KEY (hired_id) REFERENCES hired(id)
+);
+
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
