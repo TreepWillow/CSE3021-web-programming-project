@@ -1,0 +1,21 @@
+
+Port: 3306
+
+
+root user
+username: root
+password: 1234
+
+Manager User
+username: manager
+password: 12345
+
+
+MySQL command line client
+location: in apps so click on the windows icon and find it
+use root user to log in
+do /h to get the help list
+
+
+
+
